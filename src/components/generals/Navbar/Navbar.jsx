@@ -1,6 +1,7 @@
 import Link from "../Link/Link";
 
 
+
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
