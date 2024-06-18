@@ -1,5 +1,5 @@
 import Link from "../Link/Link";
-
+import Search from "../Search/Search";
 
 
 const Navbar = () => {
@@ -33,14 +33,12 @@ const Navbar = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
-              Buscar
-            </button>
-          </form>
+            <Search labels={"Buscar"}/>
+              </form>
         </div>
       </div>
     </nav>
   );
-}
+} 
 
 export default Navbar
