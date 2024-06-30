@@ -1,11 +1,16 @@
-const Cards = ({cardImage,cardTitle,cardText,cardSearch}) => {
+import styles from '/src/styles.module.css'
+
+const Cards = ({character:{name,image,species,status}}) => {
+  const {cardText}=styles
   return (
     <div className="card w-25 h-25">
-        <img className="card-img-top" src={cardImage} alt="Card image cap"/>
+        <img className="card-img-top" src={image} alt="Card image cap"/>
         <div className="card-body">
-          <h5 className="card-title">{cardTitle}</h5>
-          <p className="card-text">{cardText}</p>
-          <a href="#" className="btn btn-primary">{cardSearch}</a>
+          <h5 className="card-title">Nombre: {name}</h5>
+          <ul>
+            <li><p className={cardText}>Especie: {species}</p></li>
+            <li><p className={cardText}>Estatus: {status}</p></li>
+          </ul>
         </div>
     </div>
     )

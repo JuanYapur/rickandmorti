@@ -5,18 +5,10 @@ import axios from 'axios'
 // import logo from './assets/img/episodio1.jpeg' //forma de importar imagen
 
 function App() {
-  const [characters, setCharacters] = useState([])
-  const handleRequest = async () => {
-    try { const {data:{results}} = await axios.get("https://rickandmortyapi.com/api/character")
-     setCharacters(results)   }
-    catch(error) {console.log(error)}
-    
-    
-  }
+
 
   //Todo lo que se ejecuta en useEffect se ejecuta una o mas veces dependiendo como lo configuremos, pero se ejecuta una vez que se ejecuta todo el codigo
-  useEffect(() => {
-    handleRequest();
+  
     // fetch("https://rickandmortyapi.com/api/character")
     //   .then((result)=>result.json())
     //   .then((data)=> setCharacters(data.results))
@@ -24,7 +16,7 @@ function App() {
     // axios.get("https://rickandmortyapi.com/api/character") //con axios hago la solicitud http y realizo
     //   .then((data)=> setCharacters(data.data.results)) //con then y catch resuelvo la promesa 
     //   .catch((error)=> console.log(error))
-    }, [])
+    
  
     
   // const [count,setCount] = useState(0); //uso de los hook (estados), reciben dos argumentos, uno es el estado y el otro el metodo que cambia su valor

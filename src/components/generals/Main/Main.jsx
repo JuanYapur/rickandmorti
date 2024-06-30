@@ -1,12 +1,20 @@
 import Cards from "../Card/Cards"
+import React, {useState,useEffect} from 'react'
+import axios from 'axios'
 
 const Main = () => {
+  const [characters, setCharacters] = useState([])
+  const handleRequest = async () => {
+    try { const {data:{results}} = await axios.get("https://rickandmortyapi.com/api/character")
+     setCharacters(results)}
+    catch(error) {console.log(error)}
+    }
+    useEffect(() => {
+      handleRequest();
+    }, [])
   return (
-    <div className="d-flex justify-content-center align-item-center col-7 gap-3 p-2">
-      <Cards cardImage={"https://rickandmortyapi.com/api/character/avatar/120.jpeg"} cardTitle={"Evil Summer Clone"} cardText={"Meeseeks and Destroy"} cardSearch={"Ver"}/>
-      <Cards cardImage={"https://rickandmortyapi.com/api/character/avatar/361.jpeg"} cardTitle={"Toxic Rick"} cardText={"Rest and Ricklaxation"} cardSearch={"Ver"}/>
-      <Cards cardImage={"https://rickandmortyapi.com/api/character/avatar/436.jpeg"} cardTitle={"Giant Testicle Monster"} cardText={"Ricksy Business"} cardSearch={"Ver"}/>
-      <Cards cardImage={"https://rickandmortyapi.com/api/character/avatar/437.jpeg"} cardTitle={"Michael"} cardText={"A Rickle in Time"} cardSearch={"Ver"}/>
+    <div>
+    {characters.map((character) => <Cards key={character.id} character={character}/>)}
     </div>
   )
 }
