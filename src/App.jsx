@@ -2,20 +2,28 @@ import Navbar from './components/generals/Navbar/Navbar'
 import Main from './components/generals/Main/Main'
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
-
+// import logo from './assets/img/episodio1.jpeg' //forma de importar imagen
 
 function App() {
   const [characters, setCharacters] = useState([])
+  const handleRequest = async () => {
+    try { const {data:{results}} = await axios.get("https://rickandmortyapi.com/api/character")
+     setCharacters(results)   }
+    catch(error) {console.log(error)}
+    
+    
+  }
 
   //Todo lo que se ejecuta en useEffect se ejecuta una o mas veces dependiendo como lo configuremos, pero se ejecuta una vez que se ejecuta todo el codigo
   useEffect(() => {
+    handleRequest();
     // fetch("https://rickandmortyapi.com/api/character")
     //   .then((result)=>result.json())
     //   .then((data)=> setCharacters(data.results))
     //   .catch((error)=> console.log(error))
-    axios("https://rickandmortyapi.com/api/character") //con axios hago la solicitud http y realizo
-      .then((data)=> setCharacters(data.data.results)) //con then y catch resuelvo la promesa 
-      .catch((error)=> console.log(error))
+    // axios.get("https://rickandmortyapi.com/api/character") //con axios hago la solicitud http y realizo
+    //   .then((data)=> setCharacters(data.data.results)) //con then y catch resuelvo la promesa 
+    //   .catch((error)=> console.log(error))
     }, [])
  
     
@@ -32,6 +40,7 @@ function App() {
   
   return (
     <>
+    {/* <img src={logo} alt="" /> importar imagen*/}
     <Navbar/>
     <Main/>
     {/* <div className='d-flex flex-column justify-content-center align-items-center'>
