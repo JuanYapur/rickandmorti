@@ -4,18 +4,23 @@ import axios from 'axios'
 
 const Main = () => {
   const [characters, setCharacters] = useState([])
+  const [pages, setPages] = useState(0)
   const handleRequest = async () => {
-    try { const {data:{results}} = await axios.get("https://rickandmortyapi.com/api/character")
-     setCharacters(results)}
+    try { const {data:{results,info:{pages}}} = await axios.get("https://rickandmortyapi.com/api/character")
+     setCharacters(results)
+     setPages(pages)}
     catch(error) {console.log(error)}
+    finally {}
     }
     useEffect(() => {
       handleRequest();
     }, [])
+    const createCard = () => characters.map((character) => <Cards key={character.id} character={character}/>)
   return (
     <div>
-    {characters.map((character) => <Cards key={character.id} character={character}/>)}
-    </div>
+    {createCard()}
+    
+      </div>
   )
 }
 
