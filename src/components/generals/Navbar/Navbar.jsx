@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-black">
       <div className="container-fluid">
-        <a className="navbar-brand text-danger border border-danger w-25" href="#"> <img className="w-25" src="https://www.pngall.com/wp-content/uploads/4/Rick-And-Morty-PNG-Image.png" alt="" />
+        <a className="navbar-brand text-danger w-25" href="#"> <img className="w-25" src="https://www.pngall.com/wp-content/uploads/4/Rick-And-Morty-PNG-Image.png" alt="" />
         </a>
         <a className="navbar-brand text-danger" href="#">
           Rick & Morty
