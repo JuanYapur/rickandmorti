@@ -2,6 +2,9 @@ import Navbar from './components/generals/Navbar/Navbar'
 import Main from './components/generals/Main/Main'
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import CharactersDetails from './components/generals/CharactersDetails/CharactersDetails'
+
 // import logo from './assets/img/episodio1.jpeg' //forma de importar imagen
 
 function App() {
@@ -30,11 +33,18 @@ function App() {
   //   },1000) //setInterval ejecuta el bloque de codigo en bucle    
   //   }, [])
   
+  
   return (
     <>
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Main/>}/>
+        <Route path='/character/:id' element={<CharactersDetails/>}/>
+      </Routes>
+    </BrowserRouter>
     {/* <img src={logo} alt="" /> importar imagen*/}
-    <Navbar/>
-    <Main/>
+    
     {/* <div className='d-flex flex-column justify-content-center align-items-center'>
       <p>Hora Actual: {hora.toLocaleTimeString()}</p>
     </div> */}

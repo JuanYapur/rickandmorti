@@ -1,11 +1,11 @@
+import {Link as RouterLink} from "react-router-dom"
 
-
-const Link = ({label}) => {
+const Link = ({label,url}) => {
    return (
     <li className="nav-item">
-      <a className="nav-link text-light" href="#">
+      <RouterLink to={url} className="nav-link text-light">
         {label}
-      </a>
+      </RouterLink>
     </li>
   )
 }
