@@ -4,6 +4,7 @@ import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CharactersDetails from './components/generals/CharactersDetails/CharactersDetails'
+import Cards from './components/generals/Card/Cards'
 
 // import logo from './assets/img/episodio1.jpeg' //forma de importar imagen
 
@@ -39,7 +40,7 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Main/>}/>
+        <Route path='' element={<Main/>}/>
         <Route path='/character/:id' element={<CharactersDetails/>}/>
       </Routes>
     </BrowserRouter>

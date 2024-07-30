@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
+import Cards from '../Card/Cards';
+import CharactersList from '../../specific/CharactersDetails/CharactersList';
 
 const CharactersDetails = () => {
   const [character,setCharacter] = useState({})
@@ -15,12 +17,20 @@ const CharactersDetails = () => {
     }
     catch(error) {console.log('error')}
   }
-  console.log(character)
+
+
+  
+  
   useEffect(() => {
     fechdata();
   }, [id])
   return (  
-    <div>rey</div>
+    <div className='container'>
+      <div className='row p-5 gap-5 align-items-start'>
+        <Cards character= {character} col ={6}/>
+        <CharactersList episodes={character.episode} />
+      </div>
+    </div>
   )
 }
 

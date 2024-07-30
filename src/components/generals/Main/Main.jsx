@@ -24,7 +24,7 @@ const Main = () => {
     }, [currentPage])
     
     
-    const createCard = () => characters.map((character) => <Cards key={character.id} character={character}/>)
+    const createCard = () => characters.map((character) => <Cards key={character.id} character={character} col={3}/>)
     const handlepages = (selectedPage) => setcurrentPage (selectedPage +1)
   return (
     
